@@ -1,6 +1,18 @@
 html, body {
    margin: 0;
    padding: 0;
+   height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  background-color: #e7e7e7;
+  height: 100%;
 }
 
 header {
