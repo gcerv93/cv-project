@@ -1,7 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html, body {
-   margin: 0;
-   padding: 0;
    height: 100vh;
+   font-family: 'Quicksand', sans-serif;
 }
 
 #root {
@@ -28,6 +35,14 @@ header {
 
 .content {
   flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  background-color: white;
+  padding: 2rem;
+  width: 60%;
 }
 
 footer {
