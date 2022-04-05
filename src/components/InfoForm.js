@@ -1,4 +1,7 @@
 import React from "react";
+import Skills from "./Skills";
+import Education from "./Education";
+import Experience from "./Experience";
 
 class InfoForm extends React.Component {
   render() {
@@ -26,6 +29,10 @@ class InfoForm extends React.Component {
               <input type="text" id="phone"></input>
             </li>
           </ul>
+
+          <Skills />
+          <Education />
+          <Experience />
         </form>
       </div>
     );
