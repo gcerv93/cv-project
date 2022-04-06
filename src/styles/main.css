@@ -7,8 +7,9 @@
 }
 
 html, body {
-   height: 100vh;
-   font-family: 'Quicksand', sans-serif;
+  height: 100vh;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #e7e7e7;
 }
 
 #root {
@@ -18,7 +19,6 @@ html, body {
 .App {
   display: flex;
   flex-direction: column;
-  background-color: #e7e7e7;
   height: 100%;
 }
 
