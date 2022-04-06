@@ -33,6 +33,10 @@ class InfoForm extends React.Component {
           <Skills />
           <Education />
           <Experience />
+
+          <button id="submitBtn" type="submit">
+            Preview
+          </button>
         </form>
       </div>
     );
