@@ -105,3 +105,7 @@ button {
   height: 3.5rem;
   width: 9rem;
 }
+
+p {
+  padding: 0.5rem 0;
+}
