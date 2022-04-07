@@ -13,7 +13,7 @@ class Info extends React.Component {
       phone: { text: "fdafd" },
 
       skill: { text: "" },
-      skills: [],
+      skills: [{ text: "voila" }, { text: "yoo" }],
 
       education: { text: "" },
       educations: [],
@@ -21,7 +21,7 @@ class Info extends React.Component {
       experience: { text: "" },
       experiences: [],
 
-      preview: true,
+      preview: false,
     };
   }
 
