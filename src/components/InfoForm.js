@@ -33,6 +33,7 @@ class InfoForm extends React.Component {
           <Skills
             skills={this.props.skills}
             onBtnClick={this.props.onBtnClick}
+            handleSkillChange={this.props.handleSkillChange}
           />
           <Education />
           <Experience />

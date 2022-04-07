@@ -1,12 +1,14 @@
 import React from "react";
 import InfoForm from "./InfoForm";
 import ResumePage from "./ResumePage";
+import uniqid from "uniqid";
 
 class Info extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleAddingSkillInput = this.handleAddingSkillInput.bind(this);
+    this.handleSkillChange = this.handleSkillChange.bind(this);
 
     this.state = {
       firstName: { text: "yolo" },
@@ -14,7 +16,7 @@ class Info extends React.Component {
       email: { text: "fdaf" },
       phone: { text: "fdafd" },
 
-      skill: { text: "" },
+      skill: { text: "", id: uniqid() },
       skills: [],
 
       education: { text: "" },
@@ -27,10 +29,21 @@ class Info extends React.Component {
     };
   }
 
+  handleSkillChange(id, e) {
+    this.setState((prevState) => {
+      const skills = [...prevState.skills];
+      const index = skills.findIndex((skill) => skill.id === id);
+
+      skills[index].text = e.target.value;
+
+      return { skills };
+    });
+  }
+
   handleAddingSkillInput() {
     this.setState({
       skills: this.state.skills.concat(this.state.skill),
-      skill: { text: "" },
+      skill: { text: "", id: uniqid() },
     });
   }
 
@@ -39,7 +52,11 @@ class Info extends React.Component {
       return <ResumePage {...this.state} />;
     }
     return (
-      <InfoForm {...this.state} onBtnClick={this.handleAddingSkillInput} />
+      <InfoForm
+        {...this.state}
+        onBtnClick={this.handleAddingSkillInput}
+        handleSkillChange={this.handleSkillChange}
+      />
     );
   }
 
