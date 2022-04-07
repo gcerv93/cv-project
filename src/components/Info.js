@@ -6,6 +6,8 @@ class Info extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleAddingSkillInput = this.handleAddingSkillInput.bind(this);
+
     this.state = {
       firstName: { text: "yolo" },
       lastName: { text: "bruh" },
@@ -13,7 +15,7 @@ class Info extends React.Component {
       phone: { text: "fdafd" },
 
       skill: { text: "" },
-      skills: [{ text: "voila" }, { text: "yoo" }],
+      skills: [],
 
       education: { text: "" },
       educations: [],
@@ -25,11 +27,20 @@ class Info extends React.Component {
     };
   }
 
+  handleAddingSkillInput() {
+    this.setState({
+      skills: this.state.skills.concat(this.state.skill),
+      skill: { text: "" },
+    });
+  }
+
   display() {
     if (this.state.preview) {
       return <ResumePage {...this.state} />;
     }
-    return <InfoForm {...this.state} />;
+    return (
+      <InfoForm {...this.state} onBtnClick={this.handleAddingSkillInput} />
+    );
   }
 
   render() {

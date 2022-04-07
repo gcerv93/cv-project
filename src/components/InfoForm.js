@@ -30,7 +30,10 @@ class InfoForm extends React.Component {
             </li>
           </ul>
 
-          <Skills skills={this.props.skills} />
+          <Skills
+            skills={this.props.skills}
+            onBtnClick={this.props.onBtnClick}
+          />
           <Education />
           <Experience />
           <button id="submitBtn" type="submit">

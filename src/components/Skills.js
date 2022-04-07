@@ -1,6 +1,16 @@
 import React from "react";
 
 class Skills extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleAddingNewSkill = this.handleAddingNewSkill.bind(this);
+  }
+
+  handleAddingNewSkill() {
+    this.props.onBtnClick();
+  }
+
   render() {
     return (
       <div className="skills">
@@ -13,7 +23,9 @@ class Skills extends React.Component {
             </div>
           );
         })}
-        <button type="button">Add more</button>
+        <button type="button" onClick={this.handleAddingNewSkill}>
+          Add more
+        </button>
       </div>
     );
   }
