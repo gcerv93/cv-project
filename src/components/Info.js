@@ -60,7 +60,12 @@ class Info extends React.Component {
 
   display() {
     if (this.state.preview) {
-      return <ResumePage {...this.state} />;
+      return (
+        <ResumePage
+          {...this.state}
+          handlePreviewChange={this.handlePreviewChange}
+        />
+      );
     }
     return (
       <InfoForm
