@@ -11,6 +11,7 @@ class InfoForm extends React.Component {
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangePhone = this.onChangePhone.bind(this);
   }
 
   onChangeFirstName(e) {
@@ -23,6 +24,10 @@ class InfoForm extends React.Component {
 
   onChangeEmail(e) {
     this.props.handleEmailChange(e);
+  }
+
+  onChangePhone(e) {
+    this.props.handlePhoneChange(e);
   }
 
   onChangePreview(e) {
@@ -68,7 +73,12 @@ class InfoForm extends React.Component {
 
             <li>
               <label htmlFor="phone">Phone</label>
-              <input type="text" id="phone"></input>
+              <input
+                type="text"
+                id="phone"
+                value={this.props.phone.text}
+                onChange={this.onChangePhone}
+              ></input>
             </li>
           </ul>
 
