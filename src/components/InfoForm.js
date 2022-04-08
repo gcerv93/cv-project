@@ -84,10 +84,13 @@ class InfoForm extends React.Component {
 
           <Skills
             skills={this.props.skills}
-            onBtnClick={this.props.onBtnClick}
+            onBtnClick={this.props.addSkillInput}
             handleSkillChange={this.props.handleSkillChange}
           />
-          <Education />
+          <Education
+            educations={this.props.educations}
+            onBtnClick={this.props.addEducationInput}
+          />
           <Experience />
           <button id="submitBtn" type="submit" onClick={this.onChangePreview}>
             Preview

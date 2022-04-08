@@ -9,6 +9,8 @@ class Info extends React.Component {
 
     this.handleAddingSkillInput = this.handleAddingSkillInput.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
+    this.handleAddingEducationInput =
+      this.handleAddingEducationInput.bind(this);
     this.handlePreviewChange = this.handlePreviewChange.bind(this);
     this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
     this.handleLastNameChange = this.handleLastNameChange.bind(this);
@@ -24,7 +26,12 @@ class Info extends React.Component {
       skill: { text: "", id: uniqid() },
       skills: [],
 
-      education: { text: "" },
+      education: {
+        schoolName: { text: "" },
+        studyTitle: { text: "" },
+        startDate: { text: "" },
+        endDate: { text: "" },
+      },
       educations: [],
 
       experience: { text: "" },
@@ -86,6 +93,18 @@ class Info extends React.Component {
     });
   }
 
+  handleAddingEducationInput() {
+    this.setState({
+      educations: this.state.educations.concat(this.state.education),
+      education: {
+        schoolName: { text: "" },
+        studyTitle: { text: "" },
+        startDate: { text: "" },
+        endDate: { text: "" },
+      },
+    });
+  }
+
   display() {
     if (this.state.preview) {
       return (
@@ -98,8 +117,9 @@ class Info extends React.Component {
     return (
       <InfoForm
         {...this.state}
-        onBtnClick={this.handleAddingSkillInput}
+        addSkillInput={this.handleAddingSkillInput}
         handleSkillChange={this.handleSkillChange}
+        addEducationInput={this.handleAddingEducationInput}
         handlePreviewChange={this.handlePreviewChange}
         handleFirstNameChange={this.handleFirstNameChange}
         handleLastNameChange={this.handleLastNameChange}
