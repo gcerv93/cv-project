@@ -10,9 +10,10 @@ class Info extends React.Component {
     this.handleAddingSkillInput = this.handleAddingSkillInput.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
     this.handlePreviewChange = this.handlePreviewChange.bind(this);
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
 
     this.state = {
-      firstName: { text: "yolo" },
+      firstName: { text: "" },
       lastName: { text: "bruh" },
       email: { text: "fdaf" },
       phone: { text: "fdafd" },
@@ -28,6 +29,12 @@ class Info extends React.Component {
 
       preview: false,
     };
+  }
+
+  handleFirstNameChange(e) {
+    this.setState({
+      firstName: { text: e.target.value },
+    });
   }
 
   handlePreviewChange() {
@@ -73,6 +80,7 @@ class Info extends React.Component {
         onBtnClick={this.handleAddingSkillInput}
         handleSkillChange={this.handleSkillChange}
         handlePreviewChange={this.handlePreviewChange}
+        handleFirstNameChange={this.handleFirstNameChange}
       />
     );
   }

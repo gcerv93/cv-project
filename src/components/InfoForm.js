@@ -8,6 +8,11 @@ class InfoForm extends React.Component {
     super(props);
 
     this.onChangePreview = this.onChangePreview.bind(this);
+    this.onChangeFirstName = this.onChangeFirstName.bind(this);
+  }
+
+  onChangeFirstName(e) {
+    this.props.handleFirstNameChange(e);
   }
 
   onChangePreview(e) {
@@ -23,7 +28,12 @@ class InfoForm extends React.Component {
           <ul>
             <li>
               <label htmlFor="firstName">First Name</label>
-              <input type="text" id="firstName" />
+              <input
+                type="text"
+                id="firstName"
+                value={this.props.firstName.text}
+                onChange={this.onChangeFirstName}
+              />
             </li>
 
             <li>
