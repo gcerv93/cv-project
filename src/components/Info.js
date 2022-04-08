@@ -12,11 +12,12 @@ class Info extends React.Component {
     this.handlePreviewChange = this.handlePreviewChange.bind(this);
     this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
     this.handleLastNameChange = this.handleLastNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
 
     this.state = {
       firstName: { text: "" },
       lastName: { text: "" },
-      email: { text: "fdaf" },
+      email: { text: "" },
       phone: { text: "fdafd" },
 
       skill: { text: "", id: uniqid() },
@@ -41,6 +42,12 @@ class Info extends React.Component {
   handleLastNameChange(e) {
     this.setState({
       lastName: { text: e.target.value },
+    });
+  }
+
+  handleEmailChange(e) {
+    this.setState({
+      email: { text: e.target.value },
     });
   }
 
@@ -89,6 +96,7 @@ class Info extends React.Component {
         handlePreviewChange={this.handlePreviewChange}
         handleFirstNameChange={this.handleFirstNameChange}
         handleLastNameChange={this.handleLastNameChange}
+        handleEmailChange={this.handleEmailChange}
       />
     );
   }

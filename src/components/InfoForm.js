@@ -10,6 +10,7 @@ class InfoForm extends React.Component {
     this.onChangePreview = this.onChangePreview.bind(this);
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
   }
 
   onChangeFirstName(e) {
@@ -18,6 +19,10 @@ class InfoForm extends React.Component {
 
   onChangeLastName(e) {
     this.props.handleLastNameChange(e);
+  }
+
+  onChangeEmail(e) {
+    this.props.handleEmailChange(e);
   }
 
   onChangePreview(e) {
@@ -53,7 +58,12 @@ class InfoForm extends React.Component {
 
             <li>
               <label htmlFor="email">Email</label>
-              <input type="email" id="email"></input>
+              <input
+                type="email"
+                id="email"
+                value={this.props.email.text}
+                onChange={this.onChangeEmail}
+              ></input>
             </li>
 
             <li>
