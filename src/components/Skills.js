@@ -20,9 +20,9 @@ class Skills extends React.Component {
     return (
       <div className="skills">
         <h2>Skills</h2>
-        {this.props.skills.map((skill) => {
+        {this.props.skills.map((skill, i) => {
           return (
-            <div className="skill">
+            <div className="skill" key={i.toString()}>
               <label htmlFor="skill">Skill</label>
               <input
                 type="text"
