@@ -4,6 +4,18 @@ import Education from "./Education";
 import Experience from "./Experience";
 
 class InfoForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onChangePreview = this.onChangePreview.bind(this);
+  }
+
+  onChangePreview(e) {
+    e.preventDefault();
+
+    this.props.handlePreviewChange();
+  }
+
   render() {
     return (
       <div className="infoForm">
@@ -37,7 +49,7 @@ class InfoForm extends React.Component {
           />
           <Education />
           <Experience />
-          <button id="submitBtn" type="submit">
+          <button id="submitBtn" type="submit" onClick={this.onChangePreview}>
             Preview
           </button>
         </form>
