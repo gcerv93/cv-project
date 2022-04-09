@@ -121,8 +121,13 @@ p {
   margin: 1rem 0;
 }
 
-.educationItem {
+.educationItem, .experienceItem {
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
+}
+
+.mainTasks {
+  height: 7rem;
+  resize: none;
 }

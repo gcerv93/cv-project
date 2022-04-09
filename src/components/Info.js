@@ -10,6 +10,8 @@ class Info extends React.Component {
     this.handleAddingSkillInput = this.handleAddingSkillInput.bind(this);
     this.handleAddingEducationInput =
       this.handleAddingEducationInput.bind(this);
+    this.handleAddingExperienceInput =
+      this.handleAddingExperienceInput.bind(this);
     this.handleInputChanges = this.handleInputChanges.bind(this);
     this.handlePreviewChange = this.handlePreviewChange.bind(this);
 
@@ -31,7 +33,14 @@ class Info extends React.Component {
       },
       educations: [],
 
-      experience: { text: "" },
+      experience: {
+        companyName: { text: "" },
+        position: { text: "" },
+        mainTasks: { text: "" },
+        startDate: { text: "" },
+        endDate: { text: "" },
+        id: uniqid(),
+      },
       experiences: [],
 
       preview: false,
@@ -51,6 +60,20 @@ class Info extends React.Component {
       education: {
         schoolName: { text: "" },
         studyTitle: { text: "" },
+        startDate: { text: "" },
+        endDate: { text: "" },
+        id: uniqid(),
+      },
+    });
+  }
+
+  handleAddingExperienceInput() {
+    this.setState({
+      experiences: this.state.experiences.concat(this.state.experience),
+      experience: {
+        companyName: { text: "" },
+        position: { text: "" },
+        mainTasks: { text: "" },
         startDate: { text: "" },
         endDate: { text: "" },
         id: uniqid(),
@@ -101,6 +124,7 @@ class Info extends React.Component {
         {...this.state}
         addSkillInput={this.handleAddingSkillInput}
         addEducationInput={this.handleAddingEducationInput}
+        addExperienceInput={this.handleAddingExperienceInput}
         handleInputChanges={this.handleInputChanges}
         handlePreviewChange={this.handlePreviewChange}
       />
