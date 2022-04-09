@@ -82,6 +82,7 @@ class InfoForm extends React.Component {
           <Experience
             experiences={this.props.experiences}
             onBtnClick={this.props.addExperienceInput}
+            onChanges={this.props.handleInputChanges}
           />
 
           <button id="submitBtn" type="submit" onClick={this.onChangePreview}>

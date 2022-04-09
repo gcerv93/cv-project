@@ -5,10 +5,15 @@ class Experience extends React.Component {
     super(props);
 
     this.handleAddingNewExperience = this.handleAddingNewExperience.bind(this);
+    this.onChanges = this.onChanges.bind(this);
   }
 
   handleAddingNewExperience() {
     this.props.onBtnClick();
+  }
+
+  onChanges(id, e) {
+    this.props.onChanges(id, e);
   }
 
   render() {
@@ -25,6 +30,7 @@ class Experience extends React.Component {
                   id="experiences"
                   name="companyName"
                   value={experience.companyName.text}
+                  onChange={(e) => this.onChanges(experience.id, e)}
                 />
               </div>
 
@@ -35,6 +41,7 @@ class Experience extends React.Component {
                   id="experiences"
                   name="position"
                   value={experience.position.text}
+                  onChange={(e) => this.onChanges(experience.id, e)}
                 />
               </div>
 
@@ -46,6 +53,7 @@ class Experience extends React.Component {
                   id="experiences"
                   name="mainTasks"
                   value={experience.mainTasks.text}
+                  onChange={(e) => this.onChanges(experience.id, e)}
                 />
               </div>
 
@@ -56,6 +64,7 @@ class Experience extends React.Component {
                   id="experiences"
                   name="startDate"
                   value={experience.startDate.text}
+                  onChange={(e) => this.onChanges(experience.id, e)}
                 ></input>
               </div>
 
@@ -66,8 +75,10 @@ class Experience extends React.Component {
                   id="experiences"
                   name="endDate"
                   value={experience.endDate.text}
+                  onChange={(e) => this.onChanges(experience.id, e)}
                 ></input>
               </div>
+              <br></br>
             </div>
           );
         })}
