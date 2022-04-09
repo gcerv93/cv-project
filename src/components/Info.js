@@ -119,6 +119,7 @@ class Info extends React.Component {
         />
       );
     }
+
     return (
       <InfoForm
         {...this.state}

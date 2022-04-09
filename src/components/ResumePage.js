@@ -1,4 +1,5 @@
 import React from "react";
+import ResumeInfo from "./ResumeInfo";
 
 class ResumePage extends React.Component {
   constructor(props) {
@@ -14,10 +15,7 @@ class ResumePage extends React.Component {
   render() {
     return (
       <div>
-        <p>First name: {this.props.firstName.text}</p>
-        <p>Last name: {this.props.lastName.text}</p>
-        <p>Email: {this.props.email.text}</p>
-        <p>Phone: {this.props.phone.text}</p>
+        <ResumeInfo {...this.props} />
 
         <button type="button" onClick={this.onClickEdit}>
           Edit
