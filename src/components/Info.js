@@ -8,15 +8,10 @@ class Info extends React.Component {
     super(props);
 
     this.handleAddingSkillInput = this.handleAddingSkillInput.bind(this);
-    this.handleSkillChanges = this.handleSkillChanges.bind(this);
-
     this.handleAddingEducationInput =
       this.handleAddingEducationInput.bind(this);
-    this.handleEducationChanges = this.handleEducationChanges.bind(this);
-
-    this.handlePreviewChange = this.handlePreviewChange.bind(this);
-
     this.handleInputChanges = this.handleInputChanges.bind(this);
+    this.handlePreviewChange = this.handlePreviewChange.bind(this);
 
     this.state = {
       firstName: { text: "" },
@@ -43,44 +38,6 @@ class Info extends React.Component {
     };
   }
 
-  handleInputChanges(e) {
-    this.setState({
-      [e.target.name]: { text: e.target.value },
-    });
-  }
-
-  handlePreviewChange() {
-    this.setState((prevState) => {
-      if (prevState.preview === true) {
-        return { preview: false };
-      } else {
-        return { preview: true };
-      }
-    });
-  }
-
-  handleSkillChanges(id, e) {
-    this.setState((prevState) => {
-      const skills = [...prevState.skills];
-      const index = skills.findIndex((skill) => skill.id === id);
-
-      skills[index].text = e.target.value;
-
-      return { skills };
-    });
-  }
-
-  handleEducationChanges(id, e) {
-    this.setState((prevState) => {
-      const educations = [...prevState.educations];
-      const index = educations.findIndex((education) => education.id === id);
-
-      educations[index][e.target.name].text = e.target.value;
-
-      return { educations };
-    });
-  }
-
   handleAddingSkillInput() {
     this.setState({
       skills: this.state.skills.concat(this.state.skill),
@@ -101,6 +58,35 @@ class Info extends React.Component {
     });
   }
 
+  handleInputChanges(id, e) {
+    this.setState((prevState) => {
+      if (e.target.id) {
+        const subState = [...prevState[e.target.id]];
+        const index = subState.findIndex((sub) => sub.id === id);
+
+        if (e.target.name) {
+          subState[index][e.target.name].text = e.target.value;
+        } else {
+          subState[index].text = e.target.value;
+        }
+
+        return { subState };
+      }
+
+      return { [e.target.name]: { text: e.target.value } };
+    });
+  }
+
+  handlePreviewChange() {
+    this.setState((prevState) => {
+      if (prevState.preview === true) {
+        return { preview: false };
+      } else {
+        return { preview: true };
+      }
+    });
+  }
+
   display() {
     if (this.state.preview) {
       return (
@@ -114,11 +100,9 @@ class Info extends React.Component {
       <InfoForm
         {...this.state}
         addSkillInput={this.handleAddingSkillInput}
-        handleSkillChange={this.handleSkillChanges}
         addEducationInput={this.handleAddingEducationInput}
-        handlePreviewChange={this.handlePreviewChange}
         handleInputChanges={this.handleInputChanges}
-        handleEducationChanges={this.handleEducationChanges}
+        handlePreviewChange={this.handlePreviewChange}
       />
     );
   }

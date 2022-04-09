@@ -5,15 +5,15 @@ class Skills extends React.Component {
     super(props);
 
     this.handleAddingNewSkill = this.handleAddingNewSkill.bind(this);
-    this.onChangeSkill = this.onChangeSkill.bind(this);
+    this.onChanges = this.onChanges.bind(this);
   }
 
   handleAddingNewSkill() {
     this.props.onBtnClick();
   }
 
-  onChangeSkill(id, e) {
-    this.props.handleSkillChange(id, e);
+  onChanges(id, e) {
+    this.props.onChanges(id, e);
   }
 
   render() {
@@ -26,8 +26,9 @@ class Skills extends React.Component {
               <label htmlFor="skill">Skill</label>
               <textarea
                 type="text"
+                id="skills"
                 value={skill.text}
-                onChange={(e) => this.onChangeSkill(skill.id, e)}
+                onChange={(e) => this.onChanges(skill.id, e)}
               />
             </div>
           );

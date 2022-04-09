@@ -11,8 +11,8 @@ class InfoForm extends React.Component {
     this.onChanges = this.onChanges.bind(this);
   }
 
-  onChanges(e) {
-    this.props.handleInputChanges(e);
+  onChanges(id, e) {
+    this.props.handleInputChanges(id, e);
   }
 
   onChangePreview(e) {
@@ -32,7 +32,7 @@ class InfoForm extends React.Component {
                 type="text"
                 name="firstName"
                 value={this.props.firstName.text}
-                onChange={this.onChanges}
+                onChange={(e) => this.onChanges(null, e)}
               />
             </li>
 
@@ -42,7 +42,7 @@ class InfoForm extends React.Component {
                 type="text"
                 name="lastName"
                 value={this.props.lastName.text}
-                onChange={this.onChanges}
+                onChange={(e) => this.onChanges(null, e)}
               />
             </li>
 
@@ -52,7 +52,7 @@ class InfoForm extends React.Component {
                 type="email"
                 name="email"
                 value={this.props.email.text}
-                onChange={this.onChanges}
+                onChange={(e) => this.onChanges(null, e)}
               />
             </li>
 
@@ -62,7 +62,7 @@ class InfoForm extends React.Component {
                 type="text"
                 name="phone"
                 value={this.props.phone.text}
-                onChange={this.onChanges}
+                onChange={(e) => this.onChanges(null, e)}
               />
             </li>
           </ul>
@@ -70,13 +70,15 @@ class InfoForm extends React.Component {
           <Skills
             skills={this.props.skills}
             onBtnClick={this.props.addSkillInput}
-            handleSkillChange={this.props.handleSkillChange}
+            onChanges={this.props.handleInputChanges}
           />
+
           <Education
             educations={this.props.educations}
             onBtnClick={this.props.addEducationInput}
-            handleEducationChanges={this.props.handleEducationChanges}
+            onChanges={this.props.handleInputChanges}
           />
+
           <Experience />
           <button id="submitBtn" type="submit" onClick={this.onChangePreview}>
             Preview

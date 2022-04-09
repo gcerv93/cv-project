@@ -13,7 +13,7 @@ class Education extends React.Component {
   }
 
   onChanges(id, e) {
-    this.props.handleEducationChanges(id, e);
+    this.props.onChanges(id, e);
   }
 
   render() {
@@ -27,6 +27,7 @@ class Education extends React.Component {
                 <label htmlFor="schoolName">School name</label>
                 <textarea
                   type="text"
+                  id="educations"
                   name="schoolName"
                   value={education.schoolName.text}
                   onChange={(e) => this.onChanges(education.id, e)}
@@ -37,6 +38,7 @@ class Education extends React.Component {
                 <label htmlFor="studyTitle">Title of study</label>
                 <textarea
                   type="text"
+                  id="educations"
                   name="studyTitle"
                   value={education.studyTitle.text}
                   onChange={(e) => this.onChanges(education.id, e)}
@@ -47,6 +49,7 @@ class Education extends React.Component {
                 <label htmlFor="startDate">From</label>
                 <input
                   type="date"
+                  id="educations"
                   name="startDate"
                   value={education.startDate.text}
                   onChange={(e) => this.onChanges(education.id, e)}
@@ -57,6 +60,7 @@ class Education extends React.Component {
                 <label htmlFor="endDate">To</label>
                 <input
                   type="date"
+                  id="educations"
                   name="endDate"
                   value={education.endDate.text}
                   onChange={(e) => this.onChanges(education.id, e)}
