@@ -2,6 +2,7 @@ import React from "react";
 import ResumeInfo from "./ResumeInfo";
 import ResumeSkills from "./ResumeSkills";
 import ResumeEducation from "./ResumeEducation";
+import ResumeExperience from "./ResumeExperience";
 
 class ResumePage extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class ResumePage extends React.Component {
         <ResumeInfo {...this.props} />
         <ResumeSkills {...this.props} />
         <ResumeEducation {...this.props} />
+        <ResumeExperience {...this.props} />
 
         <button type="button" onClick={this.onClickEdit}>
           Edit

@@ -132,6 +132,6 @@ p {
   resize: none;
 }
 
-.resumeSkills, .resumeEducation {
+.resumeSkills, .resumeEducation, .resumeExperience {
   margin-top: 1rem;
 }
