@@ -9,13 +9,17 @@ class Info extends React.Component {
 
     this.handleAddingSkillInput = this.handleAddingSkillInput.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
+
     this.handleAddingEducationInput =
       this.handleAddingEducationInput.bind(this);
-    this.handlePreviewChange = this.handlePreviewChange.bind(this);
+    this.handleSchoolNameChange = this.handleSchoolNameChange.bind(this);
+
     this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
     this.handleLastNameChange = this.handleLastNameChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePhoneChange = this.handlePhoneChange.bind(this);
+
+    this.handlePreviewChange = this.handlePreviewChange.bind(this);
 
     this.state = {
       firstName: { text: "" },
@@ -31,6 +35,7 @@ class Info extends React.Component {
         studyTitle: { text: "" },
         startDate: { text: "" },
         endDate: { text: "" },
+        id: uniqid(),
       },
       educations: [],
 
@@ -101,7 +106,19 @@ class Info extends React.Component {
         studyTitle: { text: "" },
         startDate: { text: "" },
         endDate: { text: "" },
+        id: uniqid(),
       },
+    });
+  }
+
+  handleSchoolNameChange(id, e) {
+    this.setState((prevState) => {
+      const educations = [...prevState.educations];
+      const index = educations.findIndex((education) => education.id === id);
+
+      educations[index].schoolName.text = e.target.value;
+
+      return { educations };
     });
   }
 
@@ -125,6 +142,7 @@ class Info extends React.Component {
         handleLastNameChange={this.handleLastNameChange}
         handleEmailChange={this.handleEmailChange}
         handlePhoneChange={this.handlePhoneChange}
+        handleSchoolNameChange={this.handleSchoolNameChange}
       />
     );
   }

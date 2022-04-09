@@ -5,10 +5,16 @@ class Education extends React.Component {
     super(props);
 
     this.handleAddingNewEducation = this.handleAddingNewEducation.bind(this);
+    this.onChangeSchoolName = this.onChangeSchoolName.bind(this);
   }
 
   handleAddingNewEducation() {
     this.props.onBtnClick();
+  }
+
+  onChangeSchoolName(id, e) {
+    console.log(e.target.value);
+    this.props.handleSchoolNameChange(id, e);
   }
 
   render() {
@@ -20,7 +26,11 @@ class Education extends React.Component {
             <div key={idx.toString()}>
               <div className="educationItem">
                 <label htmlFor="schoolName">School name</label>
-                <input type="text" value={education.schoolName.text}></input>
+                <input
+                  type="text"
+                  value={education.schoolName.text}
+                  onChange={(e) => this.onChangeSchoolName(education.id, e)}
+                ></input>
               </div>
 
               <div className="educationItem">
