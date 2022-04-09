@@ -8,11 +8,11 @@ class Info extends React.Component {
     super(props);
 
     this.handleAddingSkillInput = this.handleAddingSkillInput.bind(this);
-    this.handleSkillChange = this.handleSkillChange.bind(this);
+    this.handleSkillChanges = this.handleSkillChanges.bind(this);
 
     this.handleAddingEducationInput =
       this.handleAddingEducationInput.bind(this);
-    this.handleSchoolNameChange = this.handleSchoolNameChange.bind(this);
+    this.handleEducationChanges = this.handleEducationChanges.bind(this);
 
     this.handlePreviewChange = this.handlePreviewChange.bind(this);
 
@@ -59,7 +59,7 @@ class Info extends React.Component {
     });
   }
 
-  handleSkillChange(id, e) {
+  handleSkillChanges(id, e) {
     this.setState((prevState) => {
       const skills = [...prevState.skills];
       const index = skills.findIndex((skill) => skill.id === id);
@@ -70,12 +70,12 @@ class Info extends React.Component {
     });
   }
 
-  handleSchoolNameChange(id, e) {
+  handleEducationChanges(id, e) {
     this.setState((prevState) => {
       const educations = [...prevState.educations];
       const index = educations.findIndex((education) => education.id === id);
 
-      educations[index].schoolName.text = e.target.value;
+      educations[index][e.target.name].text = e.target.value;
 
       return { educations };
     });
@@ -114,11 +114,11 @@ class Info extends React.Component {
       <InfoForm
         {...this.state}
         addSkillInput={this.handleAddingSkillInput}
-        handleSkillChange={this.handleSkillChange}
+        handleSkillChange={this.handleSkillChanges}
         addEducationInput={this.handleAddingEducationInput}
         handlePreviewChange={this.handlePreviewChange}
         handleInputChanges={this.handleInputChanges}
-        handleSchoolNameChange={this.handleSchoolNameChange}
+        handleEducationChanges={this.handleEducationChanges}
       />
     );
   }

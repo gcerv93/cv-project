@@ -5,16 +5,15 @@ class Education extends React.Component {
     super(props);
 
     this.handleAddingNewEducation = this.handleAddingNewEducation.bind(this);
-    this.onChangeSchoolName = this.onChangeSchoolName.bind(this);
+    this.onChanges = this.onChanges.bind(this);
   }
 
   handleAddingNewEducation() {
     this.props.onBtnClick();
   }
 
-  onChangeSchoolName(id, e) {
-    console.log(e.target.value);
-    this.props.handleSchoolNameChange(id, e);
+  onChanges(id, e) {
+    this.props.handleEducationChanges(id, e);
   }
 
   render() {
@@ -26,26 +25,42 @@ class Education extends React.Component {
             <div key={idx.toString()}>
               <div className="educationItem">
                 <label htmlFor="schoolName">School name</label>
-                <input
+                <textarea
                   type="text"
+                  name="schoolName"
                   value={education.schoolName.text}
-                  onChange={(e) => this.onChangeSchoolName(education.id, e)}
-                ></input>
+                  onChange={(e) => this.onChanges(education.id, e)}
+                />
               </div>
 
               <div className="educationItem">
                 <label htmlFor="studyTitle">Title of study</label>
-                <input type="text" value={education.studyTitle.text}></input>
+                <textarea
+                  type="text"
+                  name="studyTitle"
+                  value={education.studyTitle.text}
+                  onChange={(e) => this.onChanges(education.id, e)}
+                />
               </div>
 
               <div className="educationItem">
                 <label htmlFor="startDate">From</label>
-                <input type="date" value={education.startDate.text}></input>
+                <input
+                  type="date"
+                  name="startDate"
+                  value={education.startDate.text}
+                  onChange={(e) => this.onChanges(education.id, e)}
+                ></input>
               </div>
 
               <div className="educationItem">
                 <label htmlFor="endDate">To</label>
-                <input type="date" value={education.endDate.text}></input>
+                <input
+                  type="date"
+                  name="endDate"
+                  value={education.endDate.text}
+                  onChange={(e) => this.onChanges(education.id, e)}
+                ></input>
               </div>
               <br></br>
             </div>

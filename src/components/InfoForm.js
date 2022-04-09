@@ -75,7 +75,7 @@ class InfoForm extends React.Component {
           <Education
             educations={this.props.educations}
             onBtnClick={this.props.addEducationInput}
-            handleSchoolNameChange={this.props.handleSchoolNameChange}
+            handleEducationChanges={this.props.handleEducationChanges}
           />
           <Experience />
           <button id="submitBtn" type="submit" onClick={this.onChangePreview}>

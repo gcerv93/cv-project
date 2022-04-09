@@ -24,11 +24,11 @@ class Skills extends React.Component {
           return (
             <div className="skill" key={i.toString()}>
               <label htmlFor="skill">Skill</label>
-              <input
+              <textarea
                 type="text"
                 value={skill.text}
                 onChange={(e) => this.onChangeSkill(skill.id, e)}
-              ></input>
+              />
             </div>
           );
         })}
