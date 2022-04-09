@@ -14,12 +14,9 @@ class Info extends React.Component {
       this.handleAddingEducationInput.bind(this);
     this.handleSchoolNameChange = this.handleSchoolNameChange.bind(this);
 
-    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
-    this.handleLastNameChange = this.handleLastNameChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePhoneChange = this.handlePhoneChange.bind(this);
-
     this.handlePreviewChange = this.handlePreviewChange.bind(this);
+
+    this.handleInputChanges = this.handleInputChanges.bind(this);
 
     this.state = {
       firstName: { text: "" },
@@ -46,27 +43,9 @@ class Info extends React.Component {
     };
   }
 
-  handleFirstNameChange(e) {
+  handleInputChanges(e) {
     this.setState({
-      firstName: { text: e.target.value },
-    });
-  }
-
-  handleLastNameChange(e) {
-    this.setState({
-      lastName: { text: e.target.value },
-    });
-  }
-
-  handleEmailChange(e) {
-    this.setState({
-      email: { text: e.target.value },
-    });
-  }
-
-  handlePhoneChange(e) {
-    this.setState({
-      phone: { text: e.target.value },
+      [e.target.name]: { text: e.target.value },
     });
   }
 
@@ -91,6 +70,17 @@ class Info extends React.Component {
     });
   }
 
+  handleSchoolNameChange(id, e) {
+    this.setState((prevState) => {
+      const educations = [...prevState.educations];
+      const index = educations.findIndex((education) => education.id === id);
+
+      educations[index].schoolName.text = e.target.value;
+
+      return { educations };
+    });
+  }
+
   handleAddingSkillInput() {
     this.setState({
       skills: this.state.skills.concat(this.state.skill),
@@ -111,17 +101,6 @@ class Info extends React.Component {
     });
   }
 
-  handleSchoolNameChange(id, e) {
-    this.setState((prevState) => {
-      const educations = [...prevState.educations];
-      const index = educations.findIndex((education) => education.id === id);
-
-      educations[index].schoolName.text = e.target.value;
-
-      return { educations };
-    });
-  }
-
   display() {
     if (this.state.preview) {
       return (
@@ -138,10 +117,7 @@ class Info extends React.Component {
         handleSkillChange={this.handleSkillChange}
         addEducationInput={this.handleAddingEducationInput}
         handlePreviewChange={this.handlePreviewChange}
-        handleFirstNameChange={this.handleFirstNameChange}
-        handleLastNameChange={this.handleLastNameChange}
-        handleEmailChange={this.handleEmailChange}
-        handlePhoneChange={this.handlePhoneChange}
+        handleInputChanges={this.handleInputChanges}
         handleSchoolNameChange={this.handleSchoolNameChange}
       />
     );

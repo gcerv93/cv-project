@@ -8,26 +8,11 @@ class InfoForm extends React.Component {
     super(props);
 
     this.onChangePreview = this.onChangePreview.bind(this);
-    this.onChangeFirstName = this.onChangeFirstName.bind(this);
-    this.onChangeLastName = this.onChangeLastName.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePhone = this.onChangePhone.bind(this);
+    this.onChanges = this.onChanges.bind(this);
   }
 
-  onChangeFirstName(e) {
-    this.props.handleFirstNameChange(e);
-  }
-
-  onChangeLastName(e) {
-    this.props.handleLastNameChange(e);
-  }
-
-  onChangeEmail(e) {
-    this.props.handleEmailChange(e);
-  }
-
-  onChangePhone(e) {
-    this.props.handlePhoneChange(e);
+  onChanges(e) {
+    this.props.handleInputChanges(e);
   }
 
   onChangePreview(e) {
@@ -43,42 +28,42 @@ class InfoForm extends React.Component {
           <ul>
             <li>
               <label htmlFor="firstName">First Name</label>
-              <input
+              <textarea
                 type="text"
-                id="firstName"
+                name="firstName"
                 value={this.props.firstName.text}
-                onChange={this.onChangeFirstName}
+                onChange={this.onChanges}
               />
             </li>
 
             <li>
               <label htmlFor="lastName">Last Name</label>
-              <input
+              <textarea
                 type="text"
-                id="lastName"
+                name="lastName"
                 value={this.props.lastName.text}
-                onChange={this.onChangeLastName}
+                onChange={this.onChanges}
               />
             </li>
 
             <li>
               <label htmlFor="email">Email</label>
-              <input
+              <textarea
                 type="email"
-                id="email"
+                name="email"
                 value={this.props.email.text}
-                onChange={this.onChangeEmail}
-              ></input>
+                onChange={this.onChanges}
+              />
             </li>
 
             <li>
               <label htmlFor="phone">Phone</label>
-              <input
+              <textarea
                 type="text"
-                id="phone"
+                name="phone"
                 value={this.props.phone.text}
-                onChange={this.onChangePhone}
-              ></input>
+                onChange={this.onChanges}
+              />
             </li>
           </ul>
 
