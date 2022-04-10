@@ -9,6 +9,7 @@ class ResumeSkills extends React.Component {
           {this.props.skills.map((skill, idx) => {
             return <p key={idx.toString()}>{skill.text}</p>;
           })}
+          <br></br>
         </div>
       );
     }

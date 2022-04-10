@@ -44,6 +44,7 @@ class ResumeExperience extends React.Component {
                 {this.displayMainTasks(experience)}
                 {this.displayStartDate(experience)}
                 {this.displayEndDate(experience)}
+                <br></br>
               </div>
             );
           })}

@@ -30,6 +30,7 @@ class ResumeInfo extends React.Component {
         {this.displayName()}
         {this.displayPhone()}
         {this.displayEmail()}
+        <br></br>
       </div>
     );
   }

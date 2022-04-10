@@ -72,6 +72,7 @@ textarea, input {
 
 textarea {
   padding-top: 6px;
+  resize: none;
 }
 
 footer {
@@ -129,9 +130,4 @@ p {
 
 .mainTasks {
   height: 7rem;
-  resize: none;
-}
-
-.resumeSkills, .resumeEducation, .resumeExperience {
-  margin-top: 1rem;
 }

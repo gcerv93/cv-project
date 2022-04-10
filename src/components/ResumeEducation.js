@@ -37,6 +37,7 @@ class ResumeEducation extends React.Component {
                 {this.displayStudyTitle(education)}
                 {this.displayStartDate(education)}
                 {this.displayEndDate(education)}
+                <br></br>
               </div>
             );
           })}
