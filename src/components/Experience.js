@@ -6,6 +6,7 @@ class Experience extends React.Component {
 
     this.handleAddingNewExperience = this.handleAddingNewExperience.bind(this);
     this.onChanges = this.onChanges.bind(this);
+    this.onRemove = this.onRemove.bind(this);
   }
 
   handleAddingNewExperience() {
@@ -14,6 +15,10 @@ class Experience extends React.Component {
 
   onChanges(id, e) {
     this.props.onChanges(id, e);
+  }
+
+  onRemove(id, e) {
+    this.props.onRemove(id, e);
   }
 
   render() {
@@ -77,8 +82,15 @@ class Experience extends React.Component {
                   value={experience.endDate.text}
                   onChange={(e) => this.onChanges(experience.id, e)}
                 ></input>
+                <button
+                  type="button"
+                  className="removeBtn"
+                  id="experiences"
+                  onClick={(e) => this.onRemove(experience.id, e)}
+                >
+                  Remove
+                </button>
               </div>
-              <br></br>
             </div>
           );
         })}
