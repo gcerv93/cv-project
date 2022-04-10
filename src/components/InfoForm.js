@@ -71,6 +71,7 @@ class InfoForm extends React.Component {
             skills={this.props.skills}
             onBtnClick={this.props.addSkillInput}
             onChanges={this.props.handleInputChanges}
+            onRemove={this.props.handleRemovingInputs}
           />
 
           <Education

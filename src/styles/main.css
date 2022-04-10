@@ -119,7 +119,7 @@ p {
 .skill {
   display: flex;
   flex-direction: column;
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
 }
 
 .educationItem, .experienceItem {

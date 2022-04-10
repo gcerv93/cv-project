@@ -6,6 +6,7 @@ class Skills extends React.Component {
 
     this.handleAddingNewSkill = this.handleAddingNewSkill.bind(this);
     this.onChanges = this.onChanges.bind(this);
+    this.onRemove = this.onRemove.bind(this);
   }
 
   handleAddingNewSkill() {
@@ -14,6 +15,10 @@ class Skills extends React.Component {
 
   onChanges(id, e) {
     this.props.onChanges(id, e);
+  }
+
+  onRemove(id, e) {
+    this.props.onRemove(id, e);
   }
 
   render() {
@@ -30,7 +35,12 @@ class Skills extends React.Component {
                 value={skill.text}
                 onChange={(e) => this.onChanges(skill.id, e)}
               />
-              <button type="button" className="removeBtn">
+              <button
+                type="button"
+                className="removeBtn"
+                id="skills"
+                onClick={(e) => this.onRemove(skill.id, e)}
+              >
                 Remove
               </button>
             </div>

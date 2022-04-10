@@ -13,6 +13,7 @@ class Info extends React.Component {
     this.handleAddingExperienceInput =
       this.handleAddingExperienceInput.bind(this);
     this.handleInputChanges = this.handleInputChanges.bind(this);
+    this.handleRemovingInputs = this.handleRemovingInputs.bind(this);
     this.handlePreviewChange = this.handlePreviewChange.bind(this);
 
     this.state = {
@@ -100,6 +101,14 @@ class Info extends React.Component {
     });
   }
 
+  handleRemovingInputs(id, e) {
+    this.setState((prevState) => {
+      const subState = [...prevState[e.target.id]];
+
+      return { [e.target.id]: subState.filter((sub) => sub.id !== id) };
+    });
+  }
+
   handlePreviewChange() {
     this.setState((prevState) => {
       if (prevState.preview === true) {
@@ -127,6 +136,7 @@ class Info extends React.Component {
         addEducationInput={this.handleAddingEducationInput}
         addExperienceInput={this.handleAddingExperienceInput}
         handleInputChanges={this.handleInputChanges}
+        handleRemovingInputs={this.handleRemovingInputs}
         handlePreviewChange={this.handlePreviewChange}
       />
     );
