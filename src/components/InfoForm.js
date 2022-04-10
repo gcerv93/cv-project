@@ -78,6 +78,7 @@ class InfoForm extends React.Component {
             educations={this.props.educations}
             onBtnClick={this.props.addEducationInput}
             onChanges={this.props.handleInputChanges}
+            onRemove={this.props.handleRemovingInputs}
           />
 
           <Experience

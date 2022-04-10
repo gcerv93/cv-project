@@ -6,6 +6,7 @@ class Education extends React.Component {
 
     this.handleAddingNewEducation = this.handleAddingNewEducation.bind(this);
     this.onChanges = this.onChanges.bind(this);
+    this.onRemove = this.onRemove.bind(this);
   }
 
   handleAddingNewEducation() {
@@ -14,6 +15,10 @@ class Education extends React.Component {
 
   onChanges(id, e) {
     this.props.onChanges(id, e);
+  }
+
+  onRemove(id, e) {
+    this.props.onRemove(id, e);
   }
 
   render() {
@@ -65,8 +70,15 @@ class Education extends React.Component {
                   value={education.endDate.text}
                   onChange={(e) => this.onChanges(education.id, e)}
                 ></input>
+                <button
+                  type="button"
+                  className="removeBtn"
+                  id="educations"
+                  onClick={(e) => this.onRemove(education.id, e)}
+                >
+                  Remove
+                </button>
               </div>
-              <br></br>
             </div>
           );
         })}
