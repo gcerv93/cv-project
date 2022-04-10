@@ -30,6 +30,9 @@ class Skills extends React.Component {
                 value={skill.text}
                 onChange={(e) => this.onChanges(skill.id, e)}
               />
+              <button type="button" className="removeBtn">
+                Remove
+              </button>
             </div>
           );
         })}
