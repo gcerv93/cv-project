@@ -1,12 +1,10 @@
-import React from "react";
-
-class ResumeSkills extends React.Component {
-  displaySkills() {
-    if (this.props.skills.length > 0) {
+const ResumeSkills = (props) => {
+  function displaySkills() {
+    if (props.skills.length > 0) {
       return (
         <div className="resumeSkills">
           <h2>Skills</h2>
-          {this.props.skills.map((skill, idx) => {
+          {props.skills.map((skill, idx) => {
             return <p key={idx.toString()}>{skill.text}</p>;
           })}
           <br></br>
@@ -15,9 +13,7 @@ class ResumeSkills extends React.Component {
     }
   }
 
-  render() {
-    return <div>{this.displaySkills()}</div>;
-  }
-}
+  return <div>{displaySkills()}</div>;
+};
 
 export default ResumeSkills;
