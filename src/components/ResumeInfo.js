@@ -1,39 +1,32 @@
-import React from "react";
-
-class ResumeInfo extends React.Component {
-  displayName() {
-    if (this.props.firstName.text !== "" || this.props.lastName.text !== "") {
+const ResumeInfo = (props) => {
+  function displayName() {
+    if (props.firstName.text !== "" || props.lastName.text !== "") {
       return (
-        <p>
-          Full name:{" "}
-          {this.props.firstName.text + " " + this.props.lastName.text}
-        </p>
+        <p>Full name: {props.firstName.text + " " + props.lastName.text}</p>
       );
     }
   }
 
-  displayEmail() {
-    if (this.props.email.text !== "") {
-      return <p>Email: {this.props.email.text}</p>;
+  function displayEmail() {
+    if (props.email.text !== "") {
+      return <p>Email: {props.email.text}</p>;
     }
   }
 
-  displayPhone() {
-    if (this.props.phone.text !== "") {
-      return <p>Phone: {this.props.phone.text}</p>;
+  function displayPhone() {
+    if (props.phone.text !== "") {
+      return <p>Phone: {props.phone.text}</p>;
     }
   }
 
-  render() {
-    return (
-      <div>
-        {this.displayName()}
-        {this.displayPhone()}
-        {this.displayEmail()}
-        <br></br>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      {displayName()}
+      {displayPhone()}
+      {displayEmail()}
+      <br></br>
+    </div>
+  );
+};
 
 export default ResumeInfo;
