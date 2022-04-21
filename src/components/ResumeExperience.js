@@ -1,49 +1,47 @@
-import React from "react";
-
-class ResumeExperience extends React.Component {
-  displayCompanyName(exp) {
+const ResumeExperience = (props) => {
+  function displayCompanyName(exp) {
     if (exp.companyName.text !== "") {
       return <p>Company name: {exp.companyName.text}</p>;
     }
   }
 
-  displayPosition(exp) {
+  function displayPosition(exp) {
     if (exp.position.text !== "") {
       return <p>Position: {exp.position.text}</p>;
     }
   }
 
-  displayMainTasks(exp) {
+  function displayMainTasks(exp) {
     if (exp.mainTasks.text !== "") {
       return <p>Main Tasks: {exp.mainTasks.text}</p>;
     }
   }
 
-  displayStartDate(exp) {
+  function displayStartDate(exp) {
     if (exp.startDate.text !== "") {
       return <p>From: {exp.startDate.text}</p>;
     }
   }
 
-  displayEndDate(exp) {
+  function displayEndDate(exp) {
     if (exp.endDate.text !== "") {
       return <p>To: {exp.endDate.text}</p>;
     }
   }
 
-  displayExperience() {
-    if (this.props.experiences.length > 0) {
+  function displayExperience() {
+    if (props.experiences.length > 0) {
       return (
         <div className="resumeExperience">
           <h2>Experience</h2>
-          {this.props.experiences.map((experience, idx) => {
+          {props.experiences.map((experience, idx) => {
             return (
               <div key={idx.toString()}>
-                {this.displayCompanyName(experience)}
-                {this.displayPosition(experience)}
-                {this.displayMainTasks(experience)}
-                {this.displayStartDate(experience)}
-                {this.displayEndDate(experience)}
+                {displayCompanyName(experience)}
+                {displayPosition(experience)}
+                {displayMainTasks(experience)}
+                {displayStartDate(experience)}
+                {displayEndDate(experience)}
                 <br></br>
               </div>
             );
@@ -52,9 +50,8 @@ class ResumeExperience extends React.Component {
       );
     }
   }
-  render() {
-    return <div>{this.displayExperience()}</div>;
-  }
-}
+
+  return <div>{displayExperience()}</div>;
+};
 
 export default ResumeExperience;
