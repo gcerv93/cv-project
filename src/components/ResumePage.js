@@ -1,34 +1,25 @@
-import React from "react";
 import ResumeInfo from "./ResumeInfo";
 import ResumeSkills from "./ResumeSkills";
 import ResumeEducation from "./ResumeEducation";
 import ResumeExperience from "./ResumeExperience";
 
-class ResumePage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.onClickEdit = this.onClickEdit.bind(this);
+const ResumePage = (props) => {
+  function onBtnClick() {
+    props.handlePreviewChange();
   }
 
-  onClickEdit() {
-    this.props.handlePreviewChange();
-  }
+  return (
+    <div>
+      <ResumeInfo {...props} />
+      <ResumeSkills {...props} />
+      <ResumeEducation {...props} />
+      <ResumeExperience {...props} />
 
-  render() {
-    return (
-      <div>
-        <ResumeInfo {...this.props} />
-        <ResumeSkills {...this.props} />
-        <ResumeEducation {...this.props} />
-        <ResumeExperience {...this.props} />
-
-        <button type="button" onClick={this.onClickEdit}>
-          Edit
-        </button>
-      </div>
-    );
-  }
-}
+      <button type="button" onClick={onBtnClick}>
+        Edit
+      </button>
+    </div>
+  );
+};
 
 export default ResumePage;
