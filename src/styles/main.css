@@ -144,3 +144,8 @@ p {
 .removeBtn:hover {
   text-decoration: underline;
 }
+
+#submitBtn[disabled] {
+  opacity: 0.5;
+  cursor: auto;
+}

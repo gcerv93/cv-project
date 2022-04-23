@@ -1,8 +1,30 @@
 import Skills from "./Skills";
 import Education from "./Education";
 import Experience from "./Experience";
+import { useState, useEffect } from "react";
 
 const InfoForm = (props) => {
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    if (
+      props.firstName.text === "" &&
+      props.lastName.text === "" &&
+      props.email.text === "" &&
+      props.phone.text === ""
+    ) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [
+    disabled,
+    props.firstName.text,
+    props.lastName.text,
+    props.email.text,
+    props.phone.text,
+  ]);
+
   function onChanges(id, e) {
     props.handleInputChanges(id, e);
   }
@@ -79,7 +101,12 @@ const InfoForm = (props) => {
           onRemove={props.handleRemovingInputs}
         />
 
-        <button id="submitBtn" type="submit" onClick={onChangePreview}>
+        <button
+          id="submitBtn"
+          type="submit"
+          onClick={onChangePreview}
+          disabled={disabled}
+        >
           Preview
         </button>
       </form>
